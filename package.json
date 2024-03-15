@@ -1,0 +1,34 @@
+{
+  "name": "printer-model-calculator",
+  "version": "1.0.0",
+  "description": "price calculation app",
+  "main": "index.js",
+  "scripts": {
+    "test": "node tests.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Tand-Anthros/printer-model-calculator.git"
+  },
+  "keywords": [
+    "[\"3d-printing\"",
+    "\"filament-calculator\"",
+    "\"material-cost\"",
+    "\"3d-printer\"",
+    "\"filament-estimator\"",
+    "\"3d-model\"",
+    "\"print-cost-analysis\"",
+    "\"filament-management\"",
+    "\"3d-printing-app\"",
+    "\"cost-optimization\"",
+    "\"3d-printing-technology\"",
+    "\"additive-manufacturing\"]"
+  ],
+  "author": "tand_ferret thunder.light.pegasys@gmail.com",
+  "license": "UNLICENSED",
+  "private": true,
+  "bugs": {
+    "url": "https://github.com/Tand-Anthros/printer-model-calculator/issues"
+  },
+  "homepage": "https://github.com/Tand-Anthros/printer-model-calculator#readme"
+}
