@@ -4,6 +4,9 @@
   "description": "price calculation app",
   "main": "index.js",
   "scripts": {
+    "build": "webpack --mode production",
+    "exec": "webpack serve --mode development",
+    "start": "npm run build; npm run exec",
     "test": "node tests.js"
   },
   "repository": {
@@ -30,5 +33,20 @@
   "bugs": {
     "url": "https://github.com/Tand-Anthros/printer-model-calculator/issues"
   },
-  "homepage": "https://github.com/Tand-Anthros/printer-model-calculator#readme"
+  "homepage": "https://github.com/Tand-Anthros/printer-model-calculator#readme",
+  "type": "module",
+  "dependencies": {
+    "most": "^1.9.0",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.24.0",
+    "@babel/preset-env": "^7.24.0",
+    "@babel/preset-react": "^7.23.3",
+    "babel-loader": "^9.1.3",
+    "webpack": "^5.90.3",
+    "webpack-cli": "^5.1.4",
+    "webpack-dev-server": "^5.0.3"
+  }
 }
