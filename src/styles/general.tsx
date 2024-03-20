@@ -1,8 +1,8 @@
-export const out = {
+export const context_comp = {
   width: "100%",
-  height: "100vh",
+  height: "100vh%",
   margin: 0,
-  borderCollapse: "collapse",
   border: "1px solid black",
+  maxWidth: '100%', 
   backgroundColor: "#00FF00",
 }

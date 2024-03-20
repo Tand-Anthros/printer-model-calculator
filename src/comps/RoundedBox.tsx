@@ -1,10 +1,10 @@
 import React, { useState, ChangeEvent } from 'react';
 
-interface ImageComponentProps {
+interface RoundedBoxProps {
   src: string;
 }
 
-const ImageComponent: React.FC<ImageComponentProps> = ({ src }) => {
+const RoundedBox: React.FC<RoundedBoxProps> = ({ src }) => {
   const [hue, setHue] = useState<number>(0);
 
   const handleHueChange = (e: ChangeEvent<HTMLInputElement>) => {
@@ -19,20 +19,24 @@ const ImageComponent: React.FC<ImageComponentProps> = ({ src }) => {
           filter: `hue-rotate(${hue}deg)`,
           borderRadius: '15px',
           border: '1px solid #000',
-          padding: '5px'
+          padding: '5px',
+          boxSizing: 'border-box',
+          width: '100%',
+          height: '100%',
+          maxWidth: '100%',
+          maxHeight: '100%'
         }}
         alt="Customizable Image"
       />
-      <input
+      {/* {<input
         type="range"
         min="0"
         max="360"
         value={hue.toString()}
         onChange={handleHueChange}
-      />
+      />} */}
     </div>
   );
 };
 
-export default ImageComponent;
-
+export default RoundedBox;

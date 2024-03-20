@@ -1,23 +1,25 @@
 import React from "react";
-import Table from "@/comps/Table";
+import FlexGrid from "@/comps/FlexGrid";
 import RoundedBox from "@/comps/RoundedBox";
-import { out as general } from "../styles/general";
+import { context_comp } from "../styles/general";
 
+type Comp = {
+  comp: React.ReactElement;
+  flex?: string;
+  marginLeft?: string;
+  marginTop?: string;
+};
 
-const data = [
-  { id: 1, name: 'Продукт 1', price: 100 },
-  { id: 2, name: 'Продукт 2', price: 200 },
+const comps: Comp[] = [
+  { comp: <h1> Список Продуктов </h1>, flex: "1 0 100%" },
+  { comp: < RoundedBox src="texture.avif" />, flex: "0 1 50%" },
+  { comp: < RoundedBox src="texture.avif" />, flex: "0 1 30%", marginLeft: 20/2 + "%", marginTop: 20/2 + "%" },
 ];
 
-const IndexPage = () => {
-
-  return (
-    <div style={general as any}>
-      <h1>Список Продуктов</h1>
-      <Table />
-      <RoundedBox src="texture.avif"/>
-    </div>
-  );
-};
+const IndexPage = () => { return (
+  <div>
+    < FlexGrid comps={comps} prop={context_comp} />
+  </div>
+)};
 
 export default IndexPage;
