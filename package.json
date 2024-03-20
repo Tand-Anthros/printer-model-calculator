@@ -1,51 +1,26 @@
 {
   "name": "printer-model-calculator",
-  "version": "1.0.0",
-  "description": "price calculation app",
-  "main": "index.js",
-  "scripts": {
-    "build": "webpack --mode production",
-    "exec": "webpack serve --mode development",
-    "start": "npm run build; npm run exec",
-    "test": "node tests.js"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/Tand-Anthros/printer-model-calculator.git"
-  },
-  "keywords": [
-    "[\"3d-printing\"",
-    "\"filament-calculator\"",
-    "\"material-cost\"",
-    "\"3d-printer\"",
-    "\"filament-estimator\"",
-    "\"3d-model\"",
-    "\"print-cost-analysis\"",
-    "\"filament-management\"",
-    "\"3d-printing-app\"",
-    "\"cost-optimization\"",
-    "\"3d-printing-technology\"",
-    "\"additive-manufacturing\"]"
-  ],
-  "author": "tand_ferret thunder.light.pegasys@gmail.com",
-  "license": "UNLICENSED",
+  "version": "0.1.0",
   "private": true,
-  "bugs": {
-    "url": "https://github.com/Tand-Anthros/printer-model-calculator/issues"
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint"
   },
-  "homepage": "https://github.com/Tand-Anthros/printer-model-calculator#readme",
-  "type": "module",
   "dependencies": {
-    "react": "^18.2.0",
-    "react-dom": "^18.2.0"
+    "@chakra-ui/react": "^2.8.2",
+    "@emotion/react": "^11.11.4",
+    "@emotion/styled": "^11.11.0",
+    "framer-motion": "^11.0.18",
+    "next": "14.1.3",
+    "react": "^18",
+    "react-dom": "^18"
   },
   "devDependencies": {
-    "@babel/core": "^7.24.0",
-    "@babel/preset-env": "^7.24.0",
-    "@babel/preset-react": "^7.23.3",
-    "babel-loader": "^9.1.3",
-    "webpack": "^5.90.3",
-    "webpack-cli": "^5.1.4",
-    "webpack-dev-server": "^5.0.3"
+    "@types/node": "^20",
+    "@types/react": "^18",
+    "@types/react-dom": "^18",
+    "typescript": "^5"
   }
 }
