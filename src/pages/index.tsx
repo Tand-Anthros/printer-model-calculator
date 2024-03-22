@@ -2,7 +2,7 @@ import React from "react";
 import FlexGrid from "@/comps/FlexGrid";
 import RoundedBox from "@/comps/RoundedBox";
 import SimpleText from "@/comps/SimpleText";
-import { context_comp } from "../styles/general";
+import { context_comp } from "@/styls/general";
 
 type Comp = {
   comp: React.ReactElement;
