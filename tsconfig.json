@@ -1,3 +1,4 @@
+// @ts-nocheck
 {
   "compilerOptions": {
     "lib": ["dom", "dom.iterable", "esnext"],

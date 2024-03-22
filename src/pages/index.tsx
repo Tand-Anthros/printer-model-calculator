@@ -2,7 +2,9 @@ import React from "react";
 import FlexGrid from "@/comps/FlexGrid";
 import RoundedBox from "@/comps/RoundedBox";
 import SimpleText from "@/comps/SimpleText";
-import { context_comp } from "@/styls/general";
+import { _context, _title, _rounded_box } from "@/styls/_default";
+import { $test } from "@/funcs/$testing";
+
 
 type Comp = {
   comp: React.ReactElement;
@@ -13,20 +15,27 @@ type Comp = {
   fontSize?: string;
 };
 
+
 const comps: Comp[][] = [
   [
-    { comp: <SimpleText text="Список продуктов :3" />, flex: "1 0 30%" },// :3
+    { comp: <SimpleText value="Список продуктов :3" style = {_title} />, flex: "1 0 100%" },
   ],
   [
-    { comp: <RoundedBox src="texture.avif" />, flex: "1 1 50%" },
-    { comp: <RoundedBox src="texture.avif" />, flex: "0 1 50%" },//, marginLeft: 20/2 + "%", marginTop: 20/2 + "%" },
+    { comp: <RoundedBox value="texture.avif" style = {_rounded_box} />, flex: "1 1 50%" },
+    { comp: <RoundedBox value="texture.avif" style = {_rounded_box} />, flex: "0 1 50%" },
   ]
 ];
 
+
 const IndexPage = () => { return (
   <div>
-    <FlexGrid comps={comps} style={context_comp} />
+    <FlexGrid value={comps} style={_context} />
   </div>  
 )};
 
+
 export default IndexPage;
+
+
+console.clear();
+$test();
