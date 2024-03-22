@@ -15,7 +15,7 @@ type Comp = {
 
 const comps: Comp[][] = [
   [
-    { comp: <SimpleText text="Список продуктов :3" />, flex: "1 0 30%" },
+    { comp: <SimpleText text="Список продуктов :3" />, flex: "1 0 30%" },// :3
   ],
   [
     { comp: <RoundedBox src="texture.avif" />, flex: "1 1 50%" },
