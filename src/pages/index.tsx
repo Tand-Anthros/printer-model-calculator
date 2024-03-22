@@ -1,22 +1,12 @@
 import React from "react";
-import FlexGrid from "@/comps/FlexGrid";
-import RoundedBox from "@/comps/RoundedBox";
-import SimpleText from "@/comps/SimpleText";
+
+import { FlexGrid, RoundedBox, SimpleText } from "@/styls/_imports";
 import { _context, _title, _rounded_box } from "@/styls/_default";
+import { _comp_props } from "@/styls/_interfaces";
 import { $test } from "@/funcs/$testing";
 
 
-type Comp = {
-  comp: React.ReactElement;
-  width?: string;
-  flex?: string;
-  marginLeft?: string;
-  marginTop?: string;
-  fontSize?: string;
-};
-
-
-const comps: Comp[][] = [
+const comps: _comp_props[][] = [
   [
     { comp: <SimpleText value="Список продуктов :3" style = {_title} />, flex: "1 0 100%" },
   ],
