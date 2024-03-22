@@ -13,11 +13,14 @@ type Comp = {
   fontSize?: string;
 };
 
-const comps: Comp[] = [
-  //{ comp: <h1> Список Продуктов </h1>, flex: "1 0 100%" },
-  { comp: <SimpleText text="Список продуктов :3" />, flex: "1 0 10%" },
-  { comp: <RoundedBox src="texture.avif" />, flex: "1 1 50%" },
-  { comp: <RoundedBox src="texture.avif" />, flex: "0 1 30%", marginLeft: 20/2 + "%", marginTop: 20/2 + "%" },
+const comps: Comp[][] = [
+  [
+    { comp: <SimpleText text="Список продуктов :3" />, flex: "1 0 30%" },
+  ],
+  [
+    { comp: <RoundedBox src="texture.avif" />, flex: "1 1 50%" },
+    { comp: <RoundedBox src="texture.avif" />, flex: "0 1 50%" },//, marginLeft: 20/2 + "%", marginTop: 20/2 + "%" },
+  ]
 ];
 
 const IndexPage = () => { return (

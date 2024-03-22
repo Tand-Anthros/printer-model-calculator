@@ -9,28 +9,25 @@ type Comp = {
 };
 
 interface TableProps {
-  comps: Comp[];
+  comps: Comp[][];
   style: React.CSSProperties;
 }
 
 const FlexGrid: React.FC<TableProps> = ({ comps, style }) => {
   return (
-    <Flex direction="column" sx = { style }>
-      {/* Контейнер для заголовка */}
-      <Box flex={comps[0].flex}>
-        {comps[0].comp}
-      </Box>
-      
-      {/* Контейнер для RoundedBox */}
-      <Flex direction="row">
-      {comps.slice(1).map((item, index) => (
-        <Box key={index} flex={item.flex} marginLeft={item.marginLeft} marginTop={item.marginTop}>
-          {item.comp}
-        </Box>
+    <Flex direction="column" sx={style}>
+      {comps.map((row, rowIndex) => (
+        <Flex key={rowIndex} direction="row">
+          {row.map((item, index) => (
+            <Box key={index} flex={item.flex} marginLeft={item.marginLeft} marginTop={item.marginTop}>
+              {item.comp}
+            </Box>
+          ))}
+        </Flex>
       ))}
-      </Flex>
     </Flex>
   );
 };
 
 export default FlexGrid;
+
