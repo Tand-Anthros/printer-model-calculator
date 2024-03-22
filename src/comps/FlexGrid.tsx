@@ -10,14 +10,14 @@ type Comp = {
 
 interface TableProps {
   comps: Comp[];
-  prop: React.CSSProperties;
+  style: React.CSSProperties;
 }
 
-const FlexGrid: React.FC<TableProps> = ({ comps, prop }) => {
+const FlexGrid: React.FC<TableProps> = ({ comps, style }) => {
   return (
-    <Flex direction="column" width="100%" sx = { prop }>
+    <Flex direction="column" sx = { style }>
       {/* Контейнер для заголовка */}
-      <Box width="100%">
+      <Box flex={comps[0].flex}>
         {comps[0].comp}
       </Box>
       
