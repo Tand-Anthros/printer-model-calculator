@@ -21,7 +21,10 @@ const FlexRow: React.FC<{ row: _comp_props[], rowIndex: number }> = ({ row, rowI
 
 const FlexGrid: React.FC<_common_props> = ({ value, style }) => {
   return (
-    <Flex direction="column" { ...style }>
+    <Flex direction="column" 
+      width = "100%"
+      maxWidth = '100%'
+      { ...style }>
       {value.map(( row: _comp_props[], rowIndex: number ) => (
         <FlexRow key={rowIndex} row={row} rowIndex={rowIndex} />
       ))}
