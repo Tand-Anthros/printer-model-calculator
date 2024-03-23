@@ -4,9 +4,10 @@ import React from "react";
 export const _context = {
   width: "100%",
   margin: 0,
-  border: "1px solid black",
+  border: '1px',
+  borderColor: 'black',
   maxWidth: '100%', 
-  backgroundColor: "#d5d7dd"
+  backgroundColor: '#d5d7dd'
 }
 
 
@@ -26,14 +27,14 @@ export const _position = {
 }
 
 
-const boxSizing: React.CSSProperties['boxSizing'] = 'border-box';
 export const _rounded_box = {
   borderRadius: '15px',
-  border: '1px solid #000',
-  padding: '5px',
-  boxSizing,
-  width: '100%',
-  height: '100%',
-  maxWidth: '100%',
-  maxHeight: '100%'
-}
+  border: '1px solid',
+  borderColor: 'black',
+  p: '5px',
+  boxSizing: 'border-box',
+  w: '100%',
+  h: '100%',
+  maxW: '100%',
+  maxH: '100%'
+};

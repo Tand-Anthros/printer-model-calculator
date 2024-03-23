@@ -4,21 +4,29 @@ import { Flex, Box } from "@chakra-ui/react";
 import { _common_props, _comp_props } from "@/styls/_interfaces";
 
 
-const FlexGrid: React.FC<_common_props> = ({ value, style }) => {
+const FlexAside = undefined;
+
+
+const FlexRow: React.FC<{ row: _comp_props[], rowIndex: number }> = ({ row, rowIndex }) => {
   return (
-    <Flex direction="column" sx={style}>
-      {value.map((row: _comp_props[], rowIndex: number) => (
-        <Flex key={rowIndex} direction="row">
-          {row.map(({ comp, ...item_subs }, index) => (
-            <Box key={index} {...item_subs}>
-              {comp}
-            </Box>
-          ))}
-        </Flex>
+    <Flex key={rowIndex} direction="row">
+      {row.map(({ comp, ...item_subs }, index) => (
+        <Box key={index} {...item_subs}>
+          { comp }
+        </Box>
       ))}
     </Flex>
-  );
-};
+)};
+
+
+const FlexGrid: React.FC<_common_props> = ({ value, style }) => {
+  return (
+    <Flex direction="column" { ...style }>
+      {value.map(( row: _comp_props[], rowIndex: number ) => (
+        <FlexRow key={rowIndex} row={row} rowIndex={rowIndex} />
+      ))}
+    </Flex>
+)};
 
 
 export default FlexGrid;
