@@ -1,5 +1,7 @@
 import React, { useState, ChangeEvent } from 'react';
+
 import { _common_props } from '@/styls/_interfaces';
+
 
 const RoundedBox: React.FC<_common_props> = ({ value, style }) => {
   const [hue, setHue] = useState<number>(0);

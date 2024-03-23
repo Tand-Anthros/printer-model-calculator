@@ -1,5 +1,6 @@
-import React, { useRef, useEffect, useState } from 'react';
+import React from 'react';
 import { Text } from '@chakra-ui/react';
+
 import { _common_props } from "@/styls/_interfaces";
 
 

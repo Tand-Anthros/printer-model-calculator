@@ -1,8 +1,3 @@
-export interface _common_props {
-  value?: any;
-  style?: React.CSSProperties;
-}
-
 export type _comp_props = {
   comp: React.ReactElement;
   flex?: string;
@@ -10,3 +5,9 @@ export type _comp_props = {
   marginTop?: string;
   width?: string;
 };
+
+
+export interface _common_props {
+  value?: _comp_props[][] | any;
+  style?: React.CSSProperties;
+}

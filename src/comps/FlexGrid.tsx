@@ -1,24 +1,13 @@
 import React from "react";
 import { Flex, Box } from "@chakra-ui/react";
 
-
-type Comp = {
-  comp: React.ReactElement;
-  flex?: string;
-  marginLeft?: string;
-  marginTop?: string;
-};
-
-interface TableProps {
-  value: Comp[][];
-  style: React.CSSProperties;
-}
+import { _common_props, _comp_props } from "@/styls/_interfaces";
 
 
-const FlexGrid: React.FC<TableProps> = ({ value, style }) => {
+const FlexGrid: React.FC<_common_props> = ({ value, style }) => {
   return (
     <Flex direction="column" sx={style}>
-      {value.map((row, rowIndex) => (
+      {value.map((row: _comp_props[], rowIndex: number) => (
         <Flex key={rowIndex} direction="row">
           {row.map(({ comp, ...item_subs }, index) => (
             <Box key={index} {...item_subs}>

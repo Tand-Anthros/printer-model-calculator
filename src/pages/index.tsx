@@ -11,8 +11,8 @@ const comps: _comp_props[][] = [
     { comp: <SimpleText value="Список продуктов :3" style = {_title} />, flex: "1 0 100%" },
   ],
   [
-    { comp: <RoundedBox value="texture.avif" style = {_rounded_box} />, flex: "1 1 50%" },
-    { comp: <RoundedBox value="texture.avif" style = {_rounded_box} />, flex: "0 1 50%" },
+    { comp: <RoundedBox value="texture.avif" style = {_rounded_box} />, flex: "1 1 30%" },
+    { comp: <RoundedBox value="texture.avif" style = {_rounded_box} />, flex: "0 1 70%" },
   ]
 ];
 
