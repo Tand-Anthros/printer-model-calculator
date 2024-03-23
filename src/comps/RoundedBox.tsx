@@ -20,15 +20,18 @@ const RoundedBox: React.FC<_common_props> = ({ value, style }) => {
         }}
         alt="Customizable Image"
       />
-      {/* {<input
-        type="range"
-        min="0"
-        max="360"
-        value={hue.toString()}
-        onChange={handleHueChange}
-      />} */}
     </div>
   );
 };
 
+
 export default RoundedBox;
+
+
+{/* {<input
+  type="range"
+  min="0"
+  max="360"
+  value={hue.toString()}
+  onChange={handleHueChange}
+/>} */}
