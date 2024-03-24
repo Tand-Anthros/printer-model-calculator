@@ -4,7 +4,7 @@ import { Flex, Box } from "@chakra-ui/react";
 import { _common_props, _comp_props } from "@/styls/_interfaces";
 
 
-export const FlexRow: React.FC<{ value: _comp_props[], rowIndex: number }> = ({ value, rowIndex }) => {
+const FlexRow: React.FC<{ value: _comp_props[], rowIndex: number }> = ({ value, rowIndex }) => {
   return (
     <Flex key={rowIndex} direction="row">
       {value.map(({ comp, ...item_subs }, index) => (
@@ -17,7 +17,7 @@ export const FlexRow: React.FC<{ value: _comp_props[], rowIndex: number }> = ({ 
 };
 
 
-export const FlexColumn: React.FC<{ value: _comp_props[], columnIndex: number }> = ({ value, columnIndex }) => {
+const FlexColumn: React.FC<{ value: _comp_props[], columnIndex: number }> = ({ value, columnIndex }) => {
   return (
     <Flex key={columnIndex} direction="column">
       {value.map(({ comp, ...item_subs }, index) => (
@@ -30,11 +30,14 @@ export const FlexColumn: React.FC<{ value: _comp_props[], columnIndex: number }>
 };
 
 
-export const FlexGrid: React.FC<{ value: Array<_comp_props>, style: object }> = ({ value, style }) => {
+const FlexGrid: React.FC<{ value: Array<_comp_props>, style: object }> = ({ value, style }) => {
   return (
-    <FlexColumn value = {value} columnIndex={0} {...style}>
-    </FlexColumn>
+    <Box {...style} >
+      <FlexColumn value={value} columnIndex={0} >
+      </FlexColumn>
+    </Box>
   );
 };
 
 
+export {FlexGrid, FlexColumn, FlexRow}
