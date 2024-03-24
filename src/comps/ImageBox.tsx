@@ -10,8 +10,10 @@ const ImageBox: React.FC<_common_props> = ({ value, style }) => {
     <Box>
       <Image
         src = { value }
-        borderRadius = '2vw'
+        borderRadius = '20%'
         border = '0.2vw solid'
+        width = "100%"
+        maxWidth = '100%'
         { ..._frame }
         { ...style }
     /></Box>

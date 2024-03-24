@@ -7,6 +7,6 @@ export type _comp_props = {
 
 
 export interface _common_props {
-  value?: _comp_props[][] | any;
+  value?: any;
   style?: object;
 }
