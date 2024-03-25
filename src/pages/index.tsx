@@ -1,6 +1,6 @@
 import React from "react";
 import { ChakraProvider } from "@chakra-ui/react";
-import { FlexGrid, FlexColumn, FlexRow, Space, TextBox, ImageBox } from "@/styls/_imports";
+import { FlexGrid, FlexColumn, FlexRow, Space, TextBox, ImageBox, DropComp } from "@/styls/_imports";
 import { _context, _subtitle, _title } from "@/styls/_default";
 import { _comp_props } from "@/styls/_interfaces";
 
@@ -50,6 +50,18 @@ const comps: _comp_props[] = [
     ]}/>, flex: '0 1 47%'}
     
   ]}/>}, 
+  { comp: <DropComp value = {
+    <FlexColumn columnIndex = {0} value = {[
+      { comp: <TextBox value = "Загрузить модель" /> },
+      { comp: <TextBox value = "Выбрать технологию" /> },
+      { comp: <TextBox value = "Выбрать материал" /> },
+      { comp: <TextBox value = "Выбрать цвет" /> },
+      { comp: <TextBox value = "Выбрать заполнение" /> },
+      { comp: <TextBox value = "Качество поверхности" /> },
+      { comp: <TextBox value = "Качество деталей" /> },
+    ]}/>
+  }/> },
+
   { comp: <Space value = "99vw"/> },
 ];
 
