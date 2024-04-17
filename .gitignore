@@ -133,3 +133,6 @@ extension/*.html
 /*.pem
 
 .env*.local
+
+# tempoary
+/pages/temp.tsx

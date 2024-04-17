@@ -30,5 +30,9 @@ export default function Page() {
 }
 
 export async function getStaticProps(arg) {
+  // const deep = useDeep();
+  // const temp = await deep.select(380);
+  // console.log('!!!' + temp);
+
   return await i18nGetStaticProps(arg);
 }

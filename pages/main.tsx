@@ -1,5 +1,6 @@
-import React, { useEffect, useState } from "react";
-import { ChakraProvider, Box, Button, Flex, Image, Text, Spacer } from "@chakra-ui/react";
+import React, { useEffect, useState } from 'react';
+import { ChakraProvider, Box, Button, Flex, Image, Text, Spacer, Checkbox, Divider, Input, InputGroup, InputLeftElement } from '@chakra-ui/react';
+import { SearchIcon } from '@chakra-ui/icons'
 import { StlViewer } from 'react-stl-viewer';
 
 
@@ -7,7 +8,7 @@ const MainPage = (deep) => {
   const [selectedItem, setSelectedItem] = useState<{[key:string]:string}>({});
   const [isOpen, setIsOpen] = useState<{[key:string]:boolean}>({});
 
-  const handleSelect = (key:string, value:string) => {
+  const handleSelect = (key, value) => {
     setSelectedItem(prevState => ({
       ...prevState,
       [key]: value
@@ -17,28 +18,40 @@ const MainPage = (deep) => {
       [key]: false
   }))}
 
-  const toggleDropdown = (key:string) => {
+  const toggleDropdown = (key) => {
     setIsOpen(prevState => ({
       ...prevState,
       [key]:!prevState[key]
   }))}
 
+
+  const _sx = {
+    img_p: {
+      borderRadius:'20%', 
+      border:'0.2vw solid', 
+      borderColor:'gray.700', 
+      backgroundColor:'#9da1af'},
+    tx: {
+      fontSize:'1.4vw',
+      whiteSpace:'nowrap',
+      paddingX:'0.3vw',
+      fontWeight:'430'},
+  }
+
   const _options = {
     _models: [
-      'Boat.stl',
-    ],
+      'Boat.stl'],
     _technology: [
-      "FDM (Fused Deposition Modeling)",
-      "SLA (Stereolithography)",
-      "DLP (Digital Light Processing)",
-      "SLS (Selective Laser Sintering)",
-      "SLM (Selective Laser Melting)",
-      "EBM (Electron Beam Melting)",
-      "Material Jetting",
-      "DOD (Drop On Demand)",
-      "Binder Jetting",
-      "MJF (Multi Jet Fusion)"
-    ],
+      'FDM (Fused Deposition Modeling)',
+      'SLA (Stereolithography)',
+      'DLP (Digital Light Processing)',
+      'SLS (Selective Laser Sintering)',
+      'SLM (Selective Laser Melting)',
+      'EBM (Electron Beam Melting)',
+      'Material Jetting',
+      'DOD (Drop On Demand)',
+      'Binder Jetting',
+      'MJF (Multi Jet Fusion)'],
     _materials: [
       'ABC',
       'PLA',
@@ -47,8 +60,7 @@ const MainPage = (deep) => {
       'ASA',
       'PP',
       'PVA',
-      'HIPS',
-    ],
+      'HIPS'],
     _colors: [
       'Черный',
       'Серый',
@@ -59,8 +71,7 @@ const MainPage = (deep) => {
       'Синий',
       'Красный',
       'Желтый',
-      'Голубой',
-    ],
+      'Голубой'],
     _filling: [
       '99%',
       '80%',
@@ -72,121 +83,149 @@ const MainPage = (deep) => {
       '40%',
       '35%',
       '30%',
-      '25%',
-    ],
+      '25%'],
     _quality: [
       'ultra (0.05mm)',
       'high (0.1mm)',
       'medium (0.2mm)',
-      'low (0.4mm)',
-    ]
+      'low (0.4mm)'],
   }
 
-
-  const renderChoiceComp = (list: Array<string>, value: string, key: string) => (
-    <Flex direction="row">
-      <Box style={{ position: 'relative', width: '16vw', height: '2.5vw' }}>
-        <Button onClick={() => toggleDropdown(key)}>
-          {selectedItem[key] || "Выберите опцию"}
+  
+  const DropComp = (list, value, key) => (
+    <Flex direction='row'>
+      <Box position='relative' flex='0 1 30%'>
+        <Button border='0.15vw solid' borderColor='blackAlpha.600' colorScheme='blackAlpha' width='16vw' height='2.1vw' minWidth='100%' marginY='0.2vw' onClick={() => toggleDropdown(key)}>
+          <Text fontSize='1.1vw' overflow='hidden' whiteSpace='nowrap' textOverflow='ellipsis'>
+            {selectedItem[key] || 'Выберите опцию'}
+          </Text>
         </Button>
         {isOpen[key] && (
-          <Box style={{ position: 'absolute', zIndex: 1000, background: '#DDDDDD', boxShadow: '0px 4px 8px rgba(0, 0, 0, 0.1)', borderRadius: '4px', width: '100%' }}>
+          <Box position='absolute' zIndex={1000} background='#DDDDDD' boxShadow='0px 4px 8px rgba(0, 0, 0, 0.25)' borderRadius='4px' minWidth='100%'>
             {list.map((value, index) => (
-              <Box key={index} style={{ cursor: 'pointer' }} onClick={() => handleSelect(key, value)}>
-                <Text fontSize="1.4vw" whiteSpace="nowrap"> {value} </Text>
+              <Box key={index} cursor='pointer' _hover={{background:'white', color:'teal.500'}} onClick={() => handleSelect(key, value)}>
+                <Text background='linear-gradient(to bottom, rgba(0,0,0,0), rgba(164,164,164,0.5))' sx={_sx.tx}> {value} </Text> 
               </Box>
             ))}
           </Box>
         )}
       </Box>
-      <Spacer flex="0 1 3%"/>
-      <Text fontSize="1.4vw" whiteSpace="nowrap" marginTop="0.1vw"> {value} </Text>
+      <Spacer flex='0 1 1%'/>
+      <Text sx={_sx.tx} flex='0 1 59%'> {value} </Text>
     </Flex>
   )
+
+  const ColorPick = () => {
+    const [isPaintingEnabled, setIsPaintingEnabled] = useState(false);
+  
+    return (
+        <Flex direction='row' height='3vw'>
+          <Checkbox colorScheme='blackAlpha' size='lg' onChange={() => setIsPaintingEnabled(!isPaintingEnabled)}>
+            <Text sx={_sx.tx}> Покраска </Text>
+          </Checkbox>
+          {isPaintingEnabled && (
+            <Flex direction='row' alignItems="center">
+              <Spacer marginX='0.2vw'/>
+              <Box flex = '0 1 6%'>
+              <InputGroup>  
+                <InputLeftElement
+                  pointerEvents="none"
+                  children={<SearchIcon color="blackAlpha.700" />}
+                />
+                <Input type='color'/>
+              </InputGroup>
+              </Box>
+            </Flex>
+          )}
+        </Flex>
+    )
+  }
 
 
   return (
     <ChakraProvider>
-      <Flex direction="column">
-        <Flex direction="row">
-          <Text fontSize="3.2vw" align="center" flex="0 1 100%" whiteSpace="nowrap"> Параметры печати </Text>
+      <Flex direction='column'>
+        <Flex>
+          <Text fontSize='3.2vw' align='center' flex='0 1 100%' whiteSpace='nowrap' fontFamily='mondia' fontWeight='500' transform='scale(1.13, 1)'> Параметры печати </Text>
+        </Flex>
+        <Flex>
+          <Divider borderWidth='0.12vw' borderColor='gray.600' borderRadius="full" marginX='16vw' marginBottom='0.7vw'/>
         </Flex>
 
-        <Spacer h="0.5vw"/> 
-        <Flex direction="row">
+        <Spacer h='0.5vw'/> 
+        <Flex direction='row'>
 
           {/* demo */}<>
-          <Flex flex="0 1 45%">
-            <Spacer flex="0 1 6%"/>
-              <Flex direction="column" flex="0 1 85%">
+          <Flex flex='0 1 40%'>
+            <Spacer flex='0 1 6%'/>
+              <Flex direction='column' flex='0 1 85%'>
                 <StlViewer
-                  url={"models/boat.stl"}
-                  style={{ width:'37vw', height:'37vw' }} // @ts-ignore
-                  modelColor='#FFFFFF'
-                  backgroundColor='#EAEAEA'
+                  url='models/boat.stl'
+                  style={{width:'37vw', height:'37vw'}} // @ts-ignore
                   rotate={true}
-                  orbitControls={true}
-                  flex="0 1 100%"
-                />
+                  orbitControls={true} />
               </Flex>
-            <Spacer flex="0 1 9%"/>
+            <Spacer flex='0 1 1%'/>
           </Flex>
           </>
 
-          <Flex direction="column" flex="0 1 47%">
+          <Flex direction='column' flex='0 1 47%' background='linear-gradient(to left, rgba(0,0,0,0), rgba(164,164,164,0.5))' paddingLeft='2vw' borderRadius='4%'>
 
             {/* initial */}<>
-              <Spacer h="5vw"/>
-              <Text fontSize="2.4vw" whiteSpace="nowrap"> Исходные данные </Text>
-              {renderChoiceComp(_options._models, "Загрузите модель", "1")}
-              {renderChoiceComp(_options._technology, "Выбрать технологию", "2")}
-              <Text fontSize="1.4vw" whiteSpace="nowrap"> Выбрать материал </Text>
-              <Text fontSize="1.4vw" whiteSpace="nowrap"> Выбрать цвет </Text>
-              <Text fontSize="1.4vw" whiteSpace="nowrap"> Выбрать заполнение </Text>
-              <Text fontSize="1.4vw" whiteSpace="nowrap"> Качество поверхности </Text>
-              <Text fontSize="1.4vw" whiteSpace="nowrap"> Качество деталей </Text>
+              <Spacer h='5vw'/>
+              <Flex direction='row' alignItems="center">
+                <Text fontSize='2.4vw' whiteSpace='nowrap' fontStyle='italic' fontFamily='mondia'> Исходные данные </Text>
+                <Flex flex='0 1 70%'>
+                  <Divider borderWidth='0.12vw' marginX='3vw' marginTop='0.6vw' borderColor='rgba(235,255,255,1)' boxShadow='0px 4px 8px rgba(0, 0, 0, 0.25)'/>
+                </Flex>
+              </Flex>
+              {DropComp(_options._models, 'Загрузите модель', '1')}
+              {DropComp(_options._technology, 'Выбрать технологию', '2')}
+              {DropComp(_options._materials, 'Выбрать материал', '3')}
+              {DropComp(_options._colors, 'Выбрать цвет', '4')}
+              {DropComp(_options._filling, 'Выбрать заполнение', '5')}
+              {DropComp(_options._quality, 'Качество поверхности', '6')}
+              {DropComp([1, 2, 3, 4, 5], 'Количество деталей', '7')}
             </>
 
             {/* post */}<>
-              <Spacer h="1vw"/>
-              <Text fontSize="2.4vw" whiteSpace="nowrap"> Пост обработка </Text>
-              <Text fontSize="1.4vw" whiteSpace="nowrap"> Сглаживаение следов печати </Text>
-              <Flex direction="row">
-                <Text fontSize="1.4vw" whiteSpace="nowrap"> Покраска </Text>
-                <Spacer flex="0 1 5%"/>
-                <Text fontSize="1.4vw" whiteSpace="nowrap"> Выбрать цвет: </Text>
-                <Spacer flex="0 1 2%"/>
-                <Box flex = '0 1 6%'><Image
-                  src = "texture.avif"
-                  borderRadius = '20%'
-                  border = '0.2vw solid'
-                  width = "100%"
-                  maxWidth = '100%'
-                  borderColor = 'gray.700'
-                  backgroundColor = '#9da1af'/></Box>
-                <Box flex = '0 1 6%'><Image
-                  src = "texture.avif"
-                  borderRadius = '20%'
-                  border = '0.2vw solid'
-                  width = "100%"
-                  maxWidth = '100%'
-                  borderColor = 'gray.700'
-                  backgroundColor = '#9da1af'/></Box>
+              <Spacer h='1vw'/>
+              <Flex direction='row' alignItems="center">
+                <Text fontSize='2.4vw' whiteSpace='nowrap' fontStyle='italic' fontFamily='mondia'> Пост обработка </Text>
+                <Flex flex='0 1 70%'>
+                  <Divider borderWidth='0.12vw' marginX='3vw' marginTop='0.6vw' borderColor='rgba(235,255,255,1)' boxShadow='0px 4px 8px rgba(0, 0, 0, 0.25)'/>
+                </Flex>
+              </Flex>
+                <Flex direction='row'>
+                <Checkbox colorScheme='blackAlpha' flex='0 1 15%' size='lg'> {/* sx={{span:{width:'1.2vw', height:'1.2vw'}}}> */}
+                  <Text sx={_sx.tx}> Сглаживаение следов печати </Text> 
+                </Checkbox>               
+              </Flex>
+              <Flex direction='row'>
+                <ColorPick/>
               </Flex>
             </>
 
             {/* result */}<>
-              <Spacer h="1.5vw"/>
-              <Flex direction="row">
-                <Text fontSize="1.4vw" whiteSpace="nowrap" flex="0 1 45%"> Отправить на печать </Text>
-                <Spacer flex="0 1 7%"/>
-                <Text fontSize="1.4vw" whiteSpace="nowrap"> Сохранить в личном кабинете </Text>
+              <Flex flex='0 1 70%'>
+                <Divider borderWidth='0.12vw' marginRight='3vw' marginTop='1vw' borderColor='rgba(235,255,255,1)' boxShadow='0px 4px 8px rgba(0, 0, 0, 0.25)'/>
+              </Flex>
+              <Flex direction='row' flex='0 1 100%'>
+                <Box flex='0 1 45%'>
+                  <Button border='0.15vw solid' borderColor='blackAlpha.600' colorScheme='blackAlpha' width='16vw' height='2.1vw' marginY='0.2vw' onClick={() => {}}>
+                    <Text fontSize='1.1vw'> Отправить на печать </Text>
+                  </Button>
+                </Box>
+                <Button border='0.15vw solid' borderColor='blackAlpha.600' colorScheme='blackAlpha' width='20vw' height='2.1vw' marginY='0.2vw' onClick={() => {}}>
+                  <Text fontSize='1.1vw'> Сохранить в личном кабинете </Text>
+                </Button>
               </Flex> 
             </>
+
           </Flex>
         </Flex> 
 
-        <Spacer h="99vw"/> 
+        <Spacer h='99vw'/> 
       </Flex>
     </ChakraProvider>
 )}
