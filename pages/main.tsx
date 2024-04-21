@@ -144,88 +144,90 @@ const MainPage = (deep) => {
 
   return (
     <ChakraProvider>
-      <Flex direction='column'>
-        <Flex>
-          <Text fontSize='3.2vw' align='center' flex='0 1 100%' whiteSpace='nowrap' fontFamily='mondia' fontWeight='500' transform='scale(1.13, 1)'> Параметры печати </Text>
-        </Flex>
-        <Flex>
-          <Divider borderWidth='0.12vw' borderColor='gray.600' borderRadius="full" marginX='16vw' marginBottom='0.7vw'/>
-        </Flex>
+      <Flex direction='column' background='gray.100'>
 
-        <Spacer h='0.5vw'/> 
-        <Flex direction='row'>
-
-          {/* demo */}<>
-          <Flex flex='0 1 40%'>
-            <Spacer flex='0 1 6%'/>
-              <Flex direction='column' flex='0 1 85%'>
-                <StlViewer
-                  url='models/boat.stl'
-                  style={{width:'37vw', height:'37vw'}} // @ts-ignore
-                  rotate={true}
-                  orbitControls={true} />
-              </Flex>
-            <Spacer flex='0 1 1%'/>
+        <Flex direction='column' background='white' paddingBottom='2vw' borderBottom='0.3vw solid' borderBottomRadius='2vw' borderColor='blackAlpha.500' overflow='hidden'>
+          <Flex flex='0 1 100%'>
+            <Box minWidth='100%' paddingX='0.1vw' background='gray.100' borderBottomRadius='1.5vw' borderBottom='0.3vw solid' borderColor='blackAlpha.500'>
+              <Text fontSize='3.2vw' align='center' flex='0 1 100%' whiteSpace='nowrap' fontFamily='mondia' fontWeight='500'> Параметры печати </Text>
+            </Box>
           </Flex>
-          </>
 
-          <Flex direction='column' flex='0 1 47%' background='linear-gradient(to left, rgba(0,0,0,0), rgba(164,164,164,0.5))' paddingLeft='2vw' borderRadius='4%'>
+          <Box><Spacer h='2vw'/></Box> 
+          <Flex direction='row'>
 
-            {/* initial */}<>
-              <Spacer h='5vw'/>
-              <Flex direction='row' alignItems="center">
-                <Text fontSize='2.4vw' whiteSpace='nowrap' fontStyle='italic' fontFamily='mondia'> Исходные данные </Text>
-                <Flex flex='0 1 70%'>
-                  <Divider borderWidth='0.12vw' marginX='3vw' marginTop='0.6vw' borderColor='rgba(235,255,255,1)' boxShadow='0px 4px 8px rgba(0, 0, 0, 0.25)'/>
+            {/* demo */}<>
+            <Flex flex='0 1 40%'>
+              <Spacer flex='0 1 6%'/>
+                <Flex direction='column' flex='0 1 85%'>
+                  <StlViewer
+                    url='models/boat.stl'
+                    style={{width:'37vw', height:'37vw'}} // @ts-ignore
+                    rotate={true}
+                    orbitControls={true} />
                 </Flex>
-              </Flex>
-              {DropComp(_options._models, 'Загрузите модель', '1')}
-              {DropComp(_options._technology, 'Выбрать технологию', '2')}
-              {DropComp(_options._materials, 'Выбрать материал', '3')}
-              {DropComp(_options._colors, 'Выбрать цвет', '4')}
-              {DropComp(_options._filling, 'Выбрать заполнение', '5')}
-              {DropComp(_options._quality, 'Качество поверхности', '6')}
-              {DropComp([1, 2, 3, 4, 5], 'Количество деталей', '7')}
+              <Spacer flex='0 1 1%'/>
+            </Flex>
             </>
 
-            {/* post */}<>
-              <Spacer h='1vw'/>
-              <Flex direction='row' alignItems="center">
-                <Text fontSize='2.4vw' whiteSpace='nowrap' fontStyle='italic' fontFamily='mondia'> Пост обработка </Text>
-                <Flex flex='0 1 70%'>
-                  <Divider borderWidth='0.12vw' marginX='3vw' marginTop='0.6vw' borderColor='rgba(235,255,255,1)' boxShadow='0px 4px 8px rgba(0, 0, 0, 0.25)'/>
+            <Flex direction='column' flex='0 1 47%' paddingLeft='2vw' background='gray.100' borderRadius='4%' borderLeft='0.3vw solid' borderColor='blackAlpha.500'>
+
+              {/* initial */}<>
+                <Spacer h='5vw'/>
+                <Flex direction='row' alignItems="center">
+                  <Text fontSize='2.4vw' whiteSpace='nowrap' fontStyle='italic' fontFamily='mondia'> Исходные данные </Text>
+                  <Flex flex='0 1 70%'>
+                    <Divider borderWidth='0.12vw' marginX='3vw' marginTop='0.6vw' borderColor='rgba(235,255,255,1)' boxShadow='0px 4px 8px rgba(0, 0, 0, 0.25)'/>
+                  </Flex>
                 </Flex>
-              </Flex>
+                {DropComp(_options._models, 'Загрузите модель', '1')}
+                {DropComp(_options._technology, 'Выбрать технологию', '2')}
+                {DropComp(_options._materials, 'Выбрать материал', '3')}
+                {DropComp(_options._colors, 'Выбрать цвет', '4')}
+                {DropComp(_options._filling, 'Выбрать заполнение', '5')}
+                {DropComp(_options._quality, 'Качество поверхности', '6')}
+                {DropComp([1, 2, 3, 4, 5], 'Количество деталей', '7')}
+              </>
+
+              {/* post */}<>
+                <Spacer h='1vw'/>
+                <Flex direction='row' alignItems="center">
+                  <Text fontSize='2.4vw' whiteSpace='nowrap' fontStyle='italic' fontFamily='mondia'> Пост обработка </Text>
+                  <Flex flex='0 1 70%'>
+                    <Divider borderWidth='0.12vw' marginX='3vw' marginTop='0.6vw' borderColor='rgba(235,255,255,1)' boxShadow='0px 4px 8px rgba(0, 0, 0, 0.25)'/>
+                  </Flex>
+                </Flex>
+                  <Flex direction='row'>
+                  <Checkbox colorScheme='blackAlpha' flex='0 1 15%' size='lg'> {/* sx={{span:{width:'1.2vw', height:'1.2vw'}}}> */}
+                    <Text sx={_sx.tx}> Сглаживаение следов печати </Text> 
+                  </Checkbox>               
+                </Flex>
                 <Flex direction='row'>
-                <Checkbox colorScheme='blackAlpha' flex='0 1 15%' size='lg'> {/* sx={{span:{width:'1.2vw', height:'1.2vw'}}}> */}
-                  <Text sx={_sx.tx}> Сглаживаение следов печати </Text> 
-                </Checkbox>               
-              </Flex>
-              <Flex direction='row'>
-                <ColorPick/>
-              </Flex>
-            </>
+                  <ColorPick/>
+                </Flex>
+              </>
 
-            {/* result */}<>
-              <Flex flex='0 1 70%'>
-                <Divider borderWidth='0.12vw' marginRight='3vw' marginTop='1vw' borderColor='rgba(235,255,255,1)' boxShadow='0px 4px 8px rgba(0, 0, 0, 0.25)'/>
-              </Flex>
-              <Flex direction='row' flex='0 1 100%'>
-                <Box flex='0 1 45%'>
-                  <Button border='0.15vw solid' borderColor='blackAlpha.600' colorScheme='blackAlpha' width='16vw' height='2.1vw' marginY='0.2vw' onClick={() => {}}>
-                    <Text fontSize='1.1vw'> Отправить на печать </Text>
+              {/* result */}<>
+                <Flex flex='0 1 70%'>
+                  <Divider borderWidth='0.12vw' marginRight='3vw' marginTop='1vw' borderColor='rgba(235,255,255,1)' boxShadow='0px 4px 8px rgba(0, 0, 0, 0.25)'/>
+                </Flex>
+                <Flex direction='row' flex='0 1 100%'>
+                  <Box flex='0 1 45%'>
+                    <Button border='0.15vw solid' borderColor='blackAlpha.600' colorScheme='blackAlpha' width='16vw' height='2.1vw' marginY='0.2vw' onClick={() => {}}>
+                      <Text fontSize='1.1vw'> Отправить на печать </Text>
+                    </Button>
+                  </Box>
+                  <Button border='0.15vw solid' borderColor='blackAlpha.600' colorScheme='blackAlpha' width='20vw' height='2.1vw' marginY='0.2vw' onClick={() => {}}>
+                    <Text fontSize='1.1vw'> Сохранить в личном кабинете </Text>
                   </Button>
-                </Box>
-                <Button border='0.15vw solid' borderColor='blackAlpha.600' colorScheme='blackAlpha' width='20vw' height='2.1vw' marginY='0.2vw' onClick={() => {}}>
-                  <Text fontSize='1.1vw'> Сохранить в личном кабинете </Text>
-                </Button>
-              </Flex> 
-            </>
+                </Flex> 
+              </>
 
+            </Flex>
           </Flex>
-        </Flex> 
-
-        <Spacer h='99vw'/> 
+        </Flex>
+    
+        <Box h='99vw'/> 
       </Flex>
     </ChakraProvider>
 )}
