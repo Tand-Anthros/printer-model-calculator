@@ -15,18 +15,18 @@ export default function Page() {
   if (typeof(window) === 'object') window.deep = deep;
   console.log('deep', deep);
 
-  // return (
-  //   <VStack p={3} spacing={3}>
-  //     <Box pt={3}>
-  //       <Heading as={'h1'} size='xl'>Deep SDK</Heading>
-  //       <Heading as={'h4'} size='md'>Minimalistic template/boilerplate for any project.</Heading>
-  //     </Box>
-  //     <Connection/>
-  //   </VStack>);
-
   return (
-    <MainPage deep = {deep}/>
-  )
+    <VStack p={3} spacing={3}>
+      <Box pt={3}>
+        <Heading as={'h1'} size='xl'>Deep SDK</Heading>
+        <Heading as={'h4'} size='md'>Minimalistic template/boilerplate for any project.</Heading>
+      </Box>
+      <Connection/>
+    </VStack>);
+
+  // return (
+  //   <MainPage deep = {deep}/>
+  // )
 }
 
 export async function getStaticProps(arg) {
