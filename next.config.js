@@ -10,6 +10,7 @@ const withNextEnv = nextEnv();
 const config =  {
   distDir: 'app',
   strictMode: false,
+  output: (+process.env.NEXT_PUBLIC_EXPORT) ? 'export' : 'standalone',
   
   webpack: (config) => {   
     config.resolve.fallback = {
