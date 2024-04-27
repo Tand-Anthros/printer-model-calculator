@@ -232,4 +232,4 @@ const MainPage = (deep) => {
     </ChakraProvider>
 )}
 
-export {MainPage};
+export default MainPage;
