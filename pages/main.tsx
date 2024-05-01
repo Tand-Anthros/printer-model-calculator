@@ -203,7 +203,7 @@ const MainPage = (deep) => {
                   </Checkbox>               
                 </Flex>
                 <Flex direction='row'>
-                  <ColorPick/>
+                  {ColorPick()}
                 </Flex>
               </>
 
@@ -232,4 +232,19 @@ const MainPage = (deep) => {
     </ChakraProvider>
 )}
 
-export default MainPage;
+const TestPage = (deep) => {
+  const [isPaintingEnabled, setIsPaintingEnabled] = useState(false);
+
+  return (
+    <ChakraProvider>
+      <Button colorScheme='blackAlpha' size='lg' onClick={() => setIsPaintingEnabled(!isPaintingEnabled)}>
+        A
+      </Button>
+      {isPaintingEnabled && (
+        <Box width='3vw'><Input type='color'/></Box>
+      )}
+    </ChakraProvider>
+)}
+
+//export default MainPage;
+export default TestPage
