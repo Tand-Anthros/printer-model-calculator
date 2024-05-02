@@ -232,7 +232,7 @@ const MainPage = (deep) => {
     </ChakraProvider>
 )}
 
-const TestPage = (deep) => {
+const _TestPage = (deep) => {
   const [isPaintingEnabled, setIsPaintingEnabled] = useState(false);
 
   return (
@@ -247,4 +247,19 @@ const TestPage = (deep) => {
 )}
 
 //export default MainPage;
+//export default TestPage
+
+const TestPage = (deep) => {
+  const [isPaintingEnabled, setIsPaintingEnabled] = useState(false);
+
+  return (<>
+    <button onClick={() => setIsPaintingEnabled(!isPaintingEnabled)}>
+      A
+    </button>
+    {isPaintingEnabled && (
+      <div><input /></div>
+    )}
+  </>);
+ }
+
 export default TestPage
